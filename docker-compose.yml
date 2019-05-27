@@ -1,0 +1,25 @@
+version: "3.7"
+volumes:
+  mysql-data:
+
+services:
+  app:
+    image: ambientum/php:7.3-nginx
+    container_name: contact-app
+    volumes:
+      - .:/var/www/app
+    ports:
+      - "80:8080"
+    links:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    container_name: contact-mysql
+    volumes:
+      - 'mysql-data:/var/lib/mysql'
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=mypass
+      - MYSQL_DATABASE=contacts
