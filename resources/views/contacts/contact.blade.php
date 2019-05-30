@@ -26,14 +26,13 @@
                 <div class="card-header">Formulário de Contato</div>
 
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ action('ContactController@store') }}">
                         @csrf
-
                         <div class="form-group row">
-                            <label for="nome" class="col-md-4 col-form-label text-md-right">Nome</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Nome</label>
 
                             <div class="col-md-6">
-                                <input id="nome" type="text" class="form-control{{ $errors->has('nome') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" autofocus>
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" autofocus>
                             </div>
                         </div>
 
@@ -46,10 +45,22 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="telefone" class="col-md-4 col-form-label text-md-right">Telefone</label>
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">Telefone</label>
 
                             <div class="col-md-6">
-                                <input id="telefone" type="telefone" class="form-control{{ $errors->has('telefone') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}">
+                                <input id="phone" type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="subject_id" class="col-md-4 col-form-label text-md-right">Assunto</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" name="subject_id">
+                                @foreach($subjects as $subject)
+                                    <option value="{{ $subject->id }}">{{ $subject->description }}</option>
+                                @endforeach
+                                </select>
                             </div>
                         </div>
 
@@ -66,6 +77,15 @@
                                 <button type="submit" class="btn btn-success">
                                     Enviar
                                 </button>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                @if (session('status'))
+                                <div class="alert alert-success">
+                                    {{ session('status') }}
+                                </div>
+                                @endif
                             </div>
                         </div>
                     </form>
