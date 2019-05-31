@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Subject;
 use App\Contact;
+use App\Http\Requests\ContactStoreRequest;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -20,8 +21,10 @@ class ContactController extends Controller
         return view('contacts.contact', compact('subjects'));
     }
 
-    public function store(Request $request)
+    public function store(ContactStoreRequest $request)
     {
+        dd($request->validated());
+
         $contact = new Contact();
         // metodo fill preenche todos os dados vindo do form de acordo com o array $fillable da model
         $contact->fill($request->all());
