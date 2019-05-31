@@ -59,6 +59,28 @@ docker-compose run app php artisan db:seed
 ```
 Acesse a aplicação no endereço: http://localhost:8080
 
+## Configuração da Base de Dados
+
+No projeto existe um arquivo `.env.example` onde você deve configurar a conexão base de dados.
+
+Renomeie para `.env` e configure da seguinte forma:
+
+Caso tenha o MySQL instalado localmente:
+
+```bash
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=contacts
+DB_USERNAME=root
+DB_PASSWORD=password
+```
+
+Caso esteja executando com Docker:
+```
+Não precisa alterar nada
+```
+
 ## Wiki
 
 Em breve
