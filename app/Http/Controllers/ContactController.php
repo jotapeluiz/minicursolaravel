@@ -11,7 +11,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-
+        return view('contacts.index');
     }
 
     public function create()
@@ -23,13 +23,11 @@ class ContactController extends Controller
 
     public function store(ContactStoreRequest $request)
     {
-        dd($request->validated());
-
         $contact = new Contact();
         // metodo fill preenche todos os dados vindo do form de acordo com o array $fillable da model
-        $contact->fill($request->all());
+        $contact->fill($request->validated());
         $contact->save();
 
-        return redirect('/')->with('status', 'Mensagem enviada com sucesso!');
+        return redirect('/contatos/create')->with('status', 'Mensagem enviada com sucesso!');
     }
 }
