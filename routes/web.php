@@ -17,3 +17,7 @@ Route::group(['prefix' => 'contatos'], function () {
     Route::post('/store', 'ContactController@store');
     Route::get('/list', 'ContactController@list');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
