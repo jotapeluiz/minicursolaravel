@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'ContactController@index');
 
-Route::get('/', 'ContactController@create');
-Route::post('/store', 'ContactController@store');
+Route::group(['prefix' => 'contatos'], function () {
+    Route::get('/create', 'ContactController@create');
+    Route::post('/store', 'ContactController@store');
+});
