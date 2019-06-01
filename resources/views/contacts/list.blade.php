@@ -73,25 +73,30 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    {{ str_replace('-', ' de ', config('app.name', 'Laravel')) }}
-                </div>
-
-                <div class="subtitle m-b-md">
-                    Um exemplo básico de um projeto Laravel
+                    Lista de Mensagens
                 </div>
 
                 <div class="flex-center">
-                    <div class="btn-group" role="group">
-                        <a href="{{ url('contatos/list') }}" type="button" class="btn btn-light">Visualizar mensagens</a>
-                        <a href="{{ url('contatos/create') }}" type="button" class="btn btn-light">Enviar mensagem</a>
-                    </div>
-                </div>
-
-                <div class="flex-center">
-                    <div class="links">
-                        <a href="https://laravel.com/docs">Documentação</a>
-                        <a href="https://laracasts.com">Laracasts</a>
-                    </div>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Telefone</th>
+                                <th scope="col">E-mail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($contacts as $contact)
+                                <tr>
+                                    <td scope="row">{{ $contact->id }}</td>
+                                    <td>{{ $contact->name }}</td>
+                                    <td>{{ $contact->phone }}</td>
+                                    <td>{{ $contact->email }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
 
             </div>

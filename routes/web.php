@@ -15,4 +15,5 @@ Route::get('/', 'ContactController@index');
 Route::group(['prefix' => 'contatos'], function () {
     Route::get('/create', 'ContactController@create');
     Route::post('/store', 'ContactController@store');
+    Route::get('/list', 'ContactController@list');
 });

@@ -21,6 +21,13 @@ class ContactController extends Controller
         return view('contacts.contact', compact('subjects'));
     }
 
+    public function list()
+    {
+        $contacts = Contact::all();
+
+        return view('contacts.list', compact('contacts'));
+    }
+
     public function store(ContactStoreRequest $request)
     {
         $contact = new Contact();
