@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Subject;
 use App\Contact;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ContactStoreRequest;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,10 @@ class ContactController extends Controller
 
     public function list()
     {
+        $user = Auth::user();
         $contacts = Contact::all();
 
-        return view('contacts.list', compact('contacts'));
+        return view('contacts.list', compact('contacts', 'user'));
     }
 
     public function store(ContactStoreRequest $request)
