@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,11 +48,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        return Validator::make($data, $this->rules(), $this->messages());
     }
 
     /**
@@ -68,5 +64,28 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    private function rules()
+    {
+        return [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ];
+    }
+
+    private function messages()
+    {
+        return [
+            'name.required' => 'O campo nome é obrigatório',
+            'name.max' => 'O campo telefone não pode ter mais do que :max caracteres',
+            'password.required' => 'O campo senha é obrigatório',
+            'password.min' => 'A senha precisa ter no mínimo :min caracteres',
+            'email.required' => 'O campo e-mail é obrigatório',
+            'email.max' => 'O campo email não pode ter mais do que :max caracteres',
+            'email.email' => 'Informe um e-mail válido',
+            'email.unique' => 'E-mail já consta na base de dados'
+        ];
     }
 }
