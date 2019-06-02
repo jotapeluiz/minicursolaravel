@@ -84,6 +84,8 @@
                                 <th scope="col">Nome</th>
                                 <th scope="col">Telefone</th>
                                 <th scope="col">E-mail</th>
+                                <th scope="col">Assunto</th>
+                                <th scope="col">Mensagem</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -93,6 +95,8 @@
                                     <td>{{ $contact->name }}</td>
                                     <td>{{ $contact->phone }}</td>
                                     <td>{{ $contact->email }}</td>
+                                    <td>{{ $contact->subject->description }}</td>
+                                    <td>{{ $contact->message->message }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -102,7 +106,7 @@
                 <div class="row">
                     Você está logado como {{ $user->name }}
                 </div>
-                
+
             </div>
         </div>
     </body>
