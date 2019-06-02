@@ -27,7 +27,8 @@ class ContactStoreRequest extends FormRequest
             'name' => 'required|max:30',
             'phone' => 'required|max:12',
             'phone' => 'nullable|max:200',
-            'email' => 'required|email'
+            'email' => 'required|email',
+            'message' => 'required|max:200'
         ];
     }
 
@@ -40,12 +41,14 @@ class ContactStoreRequest extends FormRequest
     {
         return [
             'name.required' => 'O campo nome é obrigatório',
-            'phone.required' => 'O campo telefone é obrigatório',
-            'email.required' => 'O campo email é obrigatório',
             'name.max' => 'O campo nome não pode ter mais do que :max caracteres',
-            'phone.max' => 'O campo telefone não pode ter mais do que :max caracteres',
+            'email.required' => 'O campo email é obrigatório',
             'email.max' => 'O campo email não pode ter mais do que :max caracteres',
-            'email.email' => 'Informe um e-mail válido'
+            'email.email' => 'Informe um e-mail válido',
+            'phone.required' => 'O campo telefone é obrigatório',
+            'phone.max' => 'O campo telefone não pode ter mais do que :max caracteres',
+            'message.required' => 'O campo mensagem é obrigatório',
+            'message.max' => 'O campo mensagem não pode ter mais do que :max caracteres',
         ];
     }
 }
