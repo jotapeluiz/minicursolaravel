@@ -28,7 +28,8 @@ class ContactStoreRequest extends FormRequest
             'phone' => 'required|max:12',
             'phone' => 'nullable|max:200',
             'email' => 'required|email',
-            'message' => 'required|max:200'
+            'message' => 'required|max:200',
+            'subject_id' => 'required'
         ];
     }
 

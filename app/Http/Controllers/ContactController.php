@@ -34,7 +34,7 @@ class ContactController extends Controller
     public function store(ContactStoreRequest $request)
     {
         $data = $request->validated();
-
+        
         $message = new Message($data);
         $contact = new Contact($data);
 
