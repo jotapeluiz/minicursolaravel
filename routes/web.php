@@ -10,14 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Auth::routes();
+
 Route::get('/', 'ContactController@index');
 
 Route::group(['prefix' => 'contatos'], function () {
     Route::get('/create', 'ContactController@create');
     Route::post('/store', 'ContactController@store');
-    Route::get('/list', 'ContactController@list');
+    Route::get('/list', 'ContactController@list')->middleware('auth');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
