@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFkSubjects extends Migration
+class AddColumnFkSubjectId extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class AddFkSubjects extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable('contacts')) {
-            Schema::table('contacts', function (Blueprint $table) {
-                $table->integer('subject_id')->unsigned();
-            });
-        }
+        Schema::table('contacts', function (Blueprint $table) {
+            $table->bigInteger('subject_id')->unsigned();
+        });
+
+        Schema::table('contacts', function (Blueprint $table) {
+            $table->foreign('subject_id')->references('id')->on('subjects');
+        });
     }
 
     /**

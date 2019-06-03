@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFkMessages extends Migration
+class AddColumnFkMessageId extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class AddFkMessages extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable('contacts')) {
-            Schema::table('contacts', function (Blueprint $table) {
-                $table->integer('message_id')->unsigned();
-            });
-        }
+        Schema::table('contacts', function (Blueprint $table) {
+            $table->bigInteger('message_id')->unsigned();
+            $table->foreign('message_id')->references('id')->on('messages');
+        });        
     }
 
     /**
