@@ -1,113 +1,52 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>{{ str_replace('-', ' de ', config('app.name', 'Laravel')) }}</title>
+@section('app-css')
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+@endsection
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+@section('body')
+<div class="flex-center position-ref full-height">
 
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .subtitle {
-                font-size: 24px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Lista de Mensagens
-                </div>
-
-                <div class="flex-center">
-                    <table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">Id</th>
-                                <th scope="col">Nome</th>
-                                <th scope="col">Telefone</th>
-                                <th scope="col">E-mail</th>
-                                <th scope="col">Assunto</th>
-                                <th scope="col">Mensagem</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($contacts as $contact)
-                                <tr>
-                                    <td scope="row">{{ $contact->id }}</td>
-                                    <td>{{ $contact->name }}</td>
-                                    <td>{{ $contact->phone }}</td>
-                                    <td>{{ $contact->email }}</td>
-                                    <td>{{ $contact->subject->description }}</td>
-                                    <td>{{ $contact->message->message }}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="row">
-                    Você está logado como {{ $user->name }}
-                </div>
-
-            </div>
+    <div class="content">
+        <div class="title m-b-md">
+            Lista de Mensagens
         </div>
-    </body>
-</html>
+
+        <div class="flex-center">
+            @if(count($contacts) === 0)
+                Não há mensagens
+            @else
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Assunto</th>
+                        <th scope="col">Mensagem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($contacts as $contact)
+                        <tr>
+                            <td scope="row">{{ $contact->id }}</td>
+                            <td>{{ $contact->name }}</td>
+                            <td>{{ $contact->phone }}</td>
+                            <td>{{ $contact->email }}</td>
+                            <td>{{ $contact->subject->description }}</td>
+                            <td>{{ $contact->message->message }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            @endif
+        </div>
+
+        <div class="row">
+            Você está logado como {{ $user->name }}
+        </div>
+
+    </div>
+</div>
+@endsection
