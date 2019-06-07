@@ -43,10 +43,6 @@
             @endif
         </div>
 
-        <div class="row">
-            Você está logado como {{ $user->name }}
-        </div>
-
     </div>
 </div>
 @endsection
