@@ -25,16 +25,15 @@ class ContactController extends Controller
 
     public function list()
     {
-        $user = Auth::user();
         $contacts = Contact::all();
 
-        return view('contacts.list', compact('contacts', 'user'));
+        return view('contacts.list', compact('contacts'));
     }
 
     public function store(ContactStoreRequest $request)
     {
         $data = $request->validated();
-        
+
         $message = new Message($data);
         $contact = new Contact($data);
 
