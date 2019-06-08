@@ -30,6 +30,14 @@ class ContactController extends Controller
         return view('contacts.list', compact('contacts'));
     }
 
+    public function show($id)
+    {
+        $subjects = Subject::all();
+        $contact = Contact::findOrFail($id);
+
+        return view('contacts.contact', compact('contact', 'subjects'));
+    }
+
     public function store(ContactStoreRequest $request)
     {
         $data = $request->validated();
@@ -40,6 +48,11 @@ class ContactController extends Controller
         $message->save();
         $message->contact()->save($contact);
 
-        return redirect('/contatos/create')->with('status', 'Mensagem enviada com sucesso!');
+        return redirect('/contacts/create')->with('status', 'Mensagem enviada com sucesso!');
+    }
+
+    public function edit(ContactStoreRequest $request)
+    {
+                
     }
 }
