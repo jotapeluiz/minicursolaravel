@@ -14,12 +14,13 @@ Projeto usado no minicurso de Laravel na Puc Minas *campus* Poços de Caldas
 * Tokenizer PHP Extension
 * XML PHP Extension
 * Composer
+* MySQL >= 5.7
 
 ## Setup local
 
 Crie uma base de dados no MySQL com o comando:
 ```sql
-CREATE DATABASE contacts
+CREATE DATABASE contacts;
 ```
 Acesse a pasta minicursolaravel via terminal e instale as dependências:
 ```bash
@@ -81,6 +82,14 @@ Caso esteja executando com Docker:
 Não precisa alterar nada
 ```
 
-## Wiki
+## Considerações Finais
 
-Em breve
+Explore, entenda e altere o projeto como quiser. Consulte a documentação para saber o que o
+framework é capaz de fazer.
+
+Sugestões de funcionalidades para adicionar:
+
+* Listagem, edição e exclusão de usuários;
+* Listar somente as mensagens do usuário que fez login;
+* Listar e recuperar as mensagens e usuários deletados;
+* Que sua imaginação inventar =)
