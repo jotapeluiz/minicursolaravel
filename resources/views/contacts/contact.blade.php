@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ Route::has('/contacts/create') ? 'Mande sua mensagem' : 'Edite a mensagem' }}</div>
+                <div class="card-header">{{ Request::is('contacts/create') ? 'Mande sua mensagem' : 'Edite a mensagem' }}</div>
 
                 <div class="card-body">
-                    @if(Route::has('/contacts/create'))
+                    @if(Request::is('contacts/create'))
                         <form method="POST" action="{{ action('ContactController@store') }}">
                     @else
                         <form method="POST" action="{{ action('ContactController@edit') }}">
@@ -104,7 +104,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-success">
-                                    {{ Route::has('/contacts/create') ? 'Enviar' : 'Salvar' }}
+                                    {{ Request::is('contacts/create') ? 'Enviar' : 'Salvar' }}
                                 </button>
                             </div>
                         </div>
