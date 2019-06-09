@@ -14,7 +14,10 @@ class CreateSubjectsTable extends Migration
     public function up()
     {
         Schema::create('subjects', function (Blueprint $table) {
-            $table->engine = "InnoDB";
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_unicode_ci';
+
             $table->bigIncrements('id');
             $table->string('description', 20);
         });
@@ -27,6 +30,8 @@ class CreateSubjectsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('subjects');
+        Schema::enableForeignKeyConstraints();
     }
 }

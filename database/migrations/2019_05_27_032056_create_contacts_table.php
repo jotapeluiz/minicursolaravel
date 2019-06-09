@@ -14,7 +14,10 @@ class CreateContactsTable extends Migration
     public function up()
     {
         Schema::create('contacts', function (Blueprint $table) {
-            $table->engine = "InnoDB";
+            $table->engine = 'InnoDB';
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_unicode_ci';
+
             $table->bigIncrements('id');
             $table->string('name', 30);
             $table->string('phone', 12);
@@ -30,6 +33,8 @@ class CreateContactsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('contacts');
+        Schema::enableForeignKeyConstraints();
     }
 }
