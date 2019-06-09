@@ -12,7 +12,7 @@
                         <form method="POST" action="{{ action('ContactController@store') }}">
                     @else
                         <form method="POST" action="{{ action('ContactController@edit') }}">
-                        <input name="id" type="hidden" value="{{ isset($contact->id) ? $contact->id : 0 }}">
+                        <input name="id" type="hidden" value="{{ $contact->id }}">
                         @method('PUT')
                     @endif
                         @csrf
