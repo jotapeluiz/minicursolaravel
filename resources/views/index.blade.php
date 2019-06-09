@@ -23,13 +23,6 @@
             </div>
         </div>
 
-        <div class="flex-center">
-            <div class="links">
-                <a href="https://laravel.com/docs">Documentação</a>
-                <a href="https://laracasts.com">Laracasts</a>
-            </div>
-        </div>
-
     </div>
 </div>
 @endsection
