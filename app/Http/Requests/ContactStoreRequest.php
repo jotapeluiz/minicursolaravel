@@ -24,6 +24,7 @@ class ContactStoreRequest extends FormRequest
     public function rules()
     {
         return [
+            'id' => 'integer',
             'name' => 'required|max:30',
             'phone' => 'required|max:12',
             'phone' => 'nullable|max:200',

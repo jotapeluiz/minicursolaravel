@@ -12,6 +12,7 @@
                         <form method="POST" action="{{ action('ContactController@store') }}">
                     @else
                         <form method="POST" action="{{ action('ContactController@edit') }}">
+                        <input name="id" type="hidden" value="{{ isset($contact->id) ? $contact->id : 0 }}">
                         @method('PUT')
                     @endif
                         @csrf
@@ -103,7 +104,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-success">
-                                    Enviar
+                                    {{ Route::has('/contacts/create') ? 'Enviar' : 'Salvar' }}
                                 </button>
                             </div>
                         </div>

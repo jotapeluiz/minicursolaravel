@@ -7,7 +7,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-xl-12">
             <div class="card">
                 @if(count($contacts) === 0)
                 <div class="card-header">Não há Mensagens</div>
@@ -24,8 +24,8 @@
                                     <th scope="col">E-mail</th>
                                     <th scope="col">Assunto</th>
                                     <th scope="col">Mensagem</th>
-                                    <th scope="col"> </th>
-                                    <th scope="col"> </th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,7 +38,7 @@
                                     <td>{{ $contact->subject->description }}</td>
                                     <td>{{ $contact->message->message }}</td>
                                     <td><a href="{{ url('/contacts/show/'.$contact->id.'') }}" class="btn btn-primary btn-sm" role="button">Editar</a></td>
-                                    <td><a href="#" class="btn btn-danger btn-sm" role="button">Excluir</a></td>
+                                    <td><a href="{{ url('/contacts/delete/'.$contact->id.'') }}" class="btn btn-danger btn-sm" role="button">Excluir</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>

@@ -19,6 +19,7 @@ Route::group(['prefix' => 'contacts'], function () {
     Route::get('/create', 'ContactController@create')->middleware('auth');
     Route::post('/store', 'ContactController@store')->middleware('auth');
     Route::get('/show/{id}', 'ContactController@show')->middleware('auth');
+    Route::get('/delete/{id}', 'ContactController@destroy')->middleware('auth');
     Route::put('/edit', 'ContactController@edit')->middleware('auth');
     Route::get('/list', 'ContactController@list')->middleware('auth');
 });

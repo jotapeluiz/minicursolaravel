@@ -53,6 +53,28 @@ class ContactController extends Controller
 
     public function edit(ContactStoreRequest $request)
     {
-                
+        $data = $request->validated();
+
+        $contact = Contact::findOrFail($data['id']);
+        $message = $contact->message;
+
+        $message->fill($data);
+        $contact->fill($data);
+
+        $message->save();
+        $message->contact()->save($contact);
+
+        return redirect('/contacts/list');
+    }
+
+    public function destroy($id)
+    {
+        $contact = Contact::findOrFail($id);
+        $message = $contact->message;
+
+        $message->contact()->delete($contact);
+        $message->delete();
+
+        return redirect('/contacts/list');
     }
 }
