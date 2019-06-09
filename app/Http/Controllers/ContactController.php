@@ -64,7 +64,7 @@ class ContactController extends Controller
         $message->save();
         $message->contact()->save($contact);
 
-        return redirect('/contacts/list');
+        return redirect('/contacts');
     }
 
     public function destroy($id)
@@ -75,6 +75,6 @@ class ContactController extends Controller
         $message->contact()->delete($contact);
         $message->delete();
 
-        return redirect('/contacts/list');
+        return redirect('/contacts');
     }
 }
