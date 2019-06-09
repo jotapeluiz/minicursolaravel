@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnFkMessageId extends Migration
+class AddSoftDeleteContacts extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class AddColumnFkMessageId extends Migration
     public function up()
     {
         Schema::table('contacts', function (Blueprint $table) {
-            $table->bigInteger('message_id')->unsigned();
-            $table->foreign('message_id')->references('id')->on('messages');
+            $table->softDeletes();
         });
     }
 
