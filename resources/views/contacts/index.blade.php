@@ -18,7 +18,7 @@
 
         <div class="flex-center">
             <div class="btn-group" role="group">
-                <a href="{{ url('contacts/list') }}" type="button" class="btn btn-light">Visualizar mensagens</a>
+                <a href="{{ url('contacts') }}" type="button" class="btn btn-light">Visualizar mensagens</a>
                 <a href="{{ url('contacts/create') }}" type="button" class="btn btn-light">Enviar mensagem</a>
             </div>
         </div>

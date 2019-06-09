@@ -11,9 +11,16 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        return view('contacts.index');
+        $contacts = Contact::all();
+
+        return view('contacts.list', compact('contacts'));
     }
 
     public function create()
@@ -21,13 +28,6 @@ class ContactController extends Controller
         $subjects = Subject::all();
 
         return view('contacts.contact', compact('subjects'));
-    }
-
-    public function list()
-    {
-        $contacts = Contact::all();
-
-        return view('contacts.list', compact('contacts'));
     }
 
     public function show($id)
