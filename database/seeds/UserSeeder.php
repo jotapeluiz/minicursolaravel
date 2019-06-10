@@ -19,5 +19,13 @@ class UserSeeder extends Seeder
         */
         $user = factory(User::class)->make();
         $user->save();
+
+        $this->command->info('Inserindo usuário Administrador');
+
+        User::firstOrCreate([
+            'name' => 'Administrador',
+            'email' => 'administrador@adm.com',
+            'password' => Hash::make('qwer1234')
+        ]);
     }
 }
