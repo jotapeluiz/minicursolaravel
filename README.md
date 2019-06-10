@@ -105,3 +105,5 @@ Sugestões de funcionalidades para adicionar:
 * Listar somente as mensagens do usuário que fez login;
 * Listar e recuperar as mensagens e usuários deletados;
 * Que sua imaginação inventar =)
+
+Em caso de dúvida, erro na aplicação basta abrir uma issue ;)
