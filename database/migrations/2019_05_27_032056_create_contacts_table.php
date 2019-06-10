@@ -20,8 +20,8 @@ class CreateContactsTable extends Migration
 
             $table->bigIncrements('id');
             $table->string('name', 30);
-            $table->string('phone', 12);
-            $table->string('email', 40)->nullable();
+            $table->string('phone', 10);
+            $table->string('email', 40);
             $table->timestamps();
         });
     }

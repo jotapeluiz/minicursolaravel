@@ -19,7 +19,7 @@ class CreateMessagesTable extends Migration
             $table->collation = 'utf8_unicode_ci';
 
             $table->bigIncrements('id');
-            $table->string('message', 200);
+            $table->string('message', 200)->nullable();
             $table->timestamps();
         });
     }
