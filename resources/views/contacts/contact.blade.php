@@ -61,9 +61,11 @@
                             <div class="col-md-6">
                                 <input
                                     id="phone"
-                                    type="text"
-                                    class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"
                                     name="phone"
+                                    type="text"
+                                    maxlength="10"
+                                    placeholder="Somente números"
+                                    class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"
                                     value="{{ isset($contact->phone) ? $contact->phone : old('phone') }}"
                                 >
                                 @error('phone')
