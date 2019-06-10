@@ -11,6 +11,11 @@ class Contact extends Model
 
     protected $fillable = ['name', 'phone', 'email', 'subject_id'];
 
+    public function getPhoneAttribute()
+    {
+        return mask('(##) ####-####', $this->attributes['phone']);
+    }
+
     public function message()
     {
         return $this->belongsTo('App\Message');
