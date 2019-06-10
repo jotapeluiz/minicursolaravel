@@ -82,6 +82,18 @@ Caso esteja executando com Docker:
 Não precisa alterar nada
 ```
 
+## Autenticação
+
+Ao rodar as seeds a aplicação gera dois usuários:
+
+* Um aleatório usando Faker:
+    * Senha: qwer1234
+* Um administrador com os seguintes dados:
+    * E-mail: administrador@adm.com
+    * Senha: qwer1234
+
+
+
 ## Considerações Finais
 
 Explore, entenda e altere o projeto como quiser. Consulte a documentação para saber o que o
