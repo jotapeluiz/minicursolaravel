@@ -26,11 +26,10 @@ class ContactStoreRequest extends FormRequest
         return [
             'id' => 'integer',
             'name' => 'required|max:30',
-            'phone' => 'required|max:12',
-            'phone' => 'nullable|max:200',
+            'phone' => 'integer|required|min:10|max:10',
             'email' => 'required|email',
-            'message' => 'required|max:200',
-            'subject_id' => 'required'
+            'message' => 'max:200',
+            'subject_id' => 'required|integer'
         ];
     }
 
@@ -49,6 +48,8 @@ class ContactStoreRequest extends FormRequest
             'email.email' => 'Informe um e-mail válido',
             'phone.required' => 'O campo telefone é obrigatório',
             'phone.max' => 'O campo telefone não pode ter mais do que :max caracteres',
+            'phone.min' => 'O campo telefone precisar ter no mínimo :min caracteres',
+            'phone.integer' => 'Informe somente números para o telefone',
             'message.required' => 'O campo mensagem é obrigatório',
             'message.max' => 'O campo mensagem não pode ter mais do que :max caracteres',
         ];
