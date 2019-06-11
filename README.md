@@ -16,6 +16,14 @@ Projeto usado no minicurso de Laravel na Puc Minas *campus* Poços de Caldas
 * Composer
 * MySQL >= 5.7
 
+## Obtendo o projeto
+
+Clone o projeto como comando:
+
+```bash
+git clone git@github.com:jotapeluiz/minicursolaravel.git
+```
+
 ## Setup local
 
 Crie uma base de dados no MySQL com o comando:
@@ -91,8 +99,6 @@ Ao rodar as seeds a aplicação gera dois usuários:
 * Um administrador com os seguintes dados:
     * E-mail: administrador@adm.com
     * Senha: qwer1234
-
-
 
 ## Considerações Finais
 
