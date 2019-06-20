@@ -18,7 +18,7 @@ Projeto usado no minicurso de Laravel na Puc Minas *campus* Poços de Caldas
 
 ## Obtendo o projeto
 
-Clone o projeto como comando:
+Clone o projeto com o comando:
 
 ```bash
 git clone git@github.com:jotapeluiz/minicursolaravel.git
